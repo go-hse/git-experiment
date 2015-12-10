@@ -8,7 +8,6 @@ set README=README.md
 (
 echo # git-experiment
 echo Experimental usage of git commands
-echo 
 echo The Windows batch file playgit.bat
 )>%README%
 
