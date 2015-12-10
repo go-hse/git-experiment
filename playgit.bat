@@ -2,6 +2,16 @@
 clear
 
 set GIT_SSH=
+set README=README.md
+
+::::: write the readme from here
+(
+echo # git-experiment
+echo Experimental usage of git commands
+echo 
+echo The Windows batch file playgit.bat
+)>%README%
+
 
 ::::: clone from github with ssh
 :: git clone git@github.com:go-hse/git-experiment.git
@@ -21,52 +31,64 @@ set FILE=CurrentVersion
 set VERSIONBAT=%FILE%.bat
 set DUMMY=%FILE%.dummy
 
-::::: load the file, add to build number
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo - reads a batch file with the current build number, if it exists>>%README%
 if exist %VERSIONBAT% (
 	call %VERSIONBAT%
 	set /a BUILDNR += 1
 )
 
-::::: save the file
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo - saves the batch file with the current build number>>%README%
 (
 echo echo Build %currentdate% %currenttime%
 echo set BUILDNR=%BUILDNR%
 )>%VERSIONBAT%
 
-::::: save a dummy
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo - creates a dummy file>>%README%
 (
 echo echo This is an unuseful dummy at %currentdate% %currenttime%
 )>%DUMMY%
 
-::::: check the status
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo - check the git status>>%README%
 git status -s
 
-::::: diff working <--> staged
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo - diffs working dir vs. staged >>%README%
 git diff
 
-::::: track/stage the files
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo - tracks/stages the files with git add >>%README%
 git add %~f0
 git add %VERSIONBAT%
 git add %DUMMY%
-
 git status
 pause
 
-::::: unstage the dummy file
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo - unstages the dummy file with git reset >>%README%
 git reset HEAD %DUMMY%
 git status
-
 pause
-::::: commit the files
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo - commits the stage to the repo >>%README%
 git commit -m "Build %BUILDNR%"
 
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo - shows the last changes (git log) >>%README%
 ::::: show the last changes
 git log -p -2
 git log --pretty=format:"%h - %an, %ar : %s"
 
-
-
-
-::::: push to github
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo - pushes everything to github >>%README%
 git push origin master
+
+
+::::::::END::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo - and creades this README file >>%README%
 
