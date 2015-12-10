@@ -41,7 +41,7 @@ if exist %VERSIONBAT% (
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 echo - saves the batch file with the current build number>>%README%
 (
-echo echo Build %currentdate% %currenttime%
+echo echo Build %BUILDNR% at %currentdate% %currenttime%
 echo set BUILDNR=%BUILDNR%
 )>%VERSIONBAT%
 
@@ -54,7 +54,6 @@ echo echo This is an unuseful dummy at %currentdate% %currenttime%
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 echo - check the git status>>%README%
 git status -s
-
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 echo - diffs working dir vs. staged >>%README%
 git diff
@@ -77,13 +76,26 @@ echo - shows the last changes (git log) >>%README%
 ::::: show the last changes
 git log -p -2
 
-::::::::END::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 echo - commits the stage to the repo >>%README%
 echo - pushes everything to github >>%README%
 echo - and creates this README file >>%README%
 
 git add %README%
 git commit -m "Build %BUILDNR%"
+
+:: modify the file
+(
+echo echo Some extra line.
+)>>%VERSIONBAT%
+
+:: discard the changes; fetch commited version from repo
+git checkout -- %VERSIONBAT%
+
+:: call the file; should not display the extra line
+call %VERSIONBAT%
+
+:: push to github
 git push origin master
 
 
