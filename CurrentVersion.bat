@@ -1,2 +1,2 @@
-echo Build 2015-12-10 14:24
-set BUILDNR=15
+echo Build 2015-12-10 14:36
+set BUILDNR=16
