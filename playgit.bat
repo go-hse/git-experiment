@@ -33,6 +33,7 @@ echo set BUILDNR=%BUILDNR%
 ::::: check the status
 git status
 
+::::: diff working <--> staged
 git diff
 
 ::::: track/stage the files
