@@ -90,6 +90,8 @@ git commit -m "Build %BUILDNR%"
 (
 echo echo Some extra line.
 )>>%VERSIONBAT%
+:: call the file; should display the extra line
+call %VERSIONBAT%
 
 :: discard the changes; fetch commited version from repo
 git checkout -- %VERSIONBAT%
