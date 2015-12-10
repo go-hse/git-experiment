@@ -2,3 +2,4 @@ echo Time 2015-12-10 18:09
 echo Time 2015-12-10 18:09 
 echo Time 2015-12-10 18:11 
 echo Time 2015-12-10 18:12:%c 
+echo Time 2015-12-10 18:12 
