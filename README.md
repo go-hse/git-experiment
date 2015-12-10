@@ -1,5 +1,5 @@
 # git-experiment
-Experimental usage of git commands
+## Experimental usage of git commands
 The Windows batch file playgit.bat
 - reads a batch file with the current build number, if it exists
 - saves the batch file with the current build number

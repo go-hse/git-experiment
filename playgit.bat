@@ -7,7 +7,7 @@ set README=README.md
 ::::: write the readme from here
 (
 echo # git-experiment
-echo Experimental usage of git commands
+echo ## Experimental usage of git commands
 echo The Windows batch file playgit.bat
 )>%README%
 
