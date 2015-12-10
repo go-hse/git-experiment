@@ -1,8 +1,19 @@
 @echo off
 cls
+For /f "tokens=1-3 delims=. " %%a in ('date /t') do (set currentdate=%%c-%%b-%%a)
+For /f "tokens=1-2 delims=/:" %%a in ("%TIME%") do (set currenttime=%%a:%%b)
 
+set BUILDNR=0
+set MINOR=0
+set FILE=CurrentVersion
+set VERSIONBAT=%FILE%.bat
+set DUMMY=%FILE%.dummy
 set GIT_SSH=
 set README=README.md
+
+:: use of ssh
+set REMOTE=git@github.com:go-hse/git-experiment.git
+:: call remote.bat
 
 ::::: write the readme from here
 (
@@ -24,21 +35,14 @@ echo The Windows batch file playgit.bat
 echo - shows the remote repos >>%README%
 git remote -v
 
-For /f "tokens=1-3 delims=. " %%a in ('date /t') do (set currentdate=%%c-%%b-%%a)
-For /f "tokens=1-2 delims=/:" %%a in ("%TIME%") do (set currenttime=%%a:%%b)
-
-set BUILDNR=0
-set FILE=CurrentVersion
-set VERSIONBAT=%FILE%.bat
-set DUMMY=%FILE%.dummy
-
-
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 echo - reads a batch file with the current build number, if it exists>>%README%
 if exist %VERSIONBAT% (
 	call %VERSIONBAT%
 	set /a BUILDNR += 1
 )
+
+set /a MINOR=%BUILDNR% %% 5
 
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 echo - saves the batch file with the current build number>>%README%
@@ -48,6 +52,7 @@ echo echo Build %BUILDNR% at %currentdate% %currenttime%
 echo set BUILDNR=%BUILDNR%
 echo echo :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 )>%VERSIONBAT%
+
 
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 echo - creates a dummy file>>%README%
@@ -87,6 +92,13 @@ echo - and creates this README file >>%README%
 
 git add %README%
 git commit -m "Build %BUILDNR%"
+
+
+echo %BUILDNR% minor %MINOR%
+if %MINOR% == 0 (
+	git tag -a v%BUILDNR% -m "Tag v%BUILDNR%"
+)
+
 
 :: modify the file
 (
