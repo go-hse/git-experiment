@@ -13,7 +13,8 @@ set README=README.md
 
 :: use of ssh
 set REMOTE=git@github.com:go-hse/git-experiment.git
-call remote.bat
+
+:: call remote.bat
 
 ::::: write the readme from here
 (
