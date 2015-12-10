@@ -1,6 +1,7 @@
 # git-experiment
 ## Experimental usage of git commands
 The Windows batch file playgit.bat
+- shows the remote repos 
 - reads a batch file with the current build number, if it exists
 - saves the batch file with the current build number
 - creates a dummy file

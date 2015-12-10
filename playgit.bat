@@ -21,6 +21,8 @@ echo The Windows batch file playgit.bat
 ::::: check the configuration
 :: git config --list
 
+echo - shows the remote repos >>%README%
+git remote -v
 
 For /f "tokens=1-3 delims=. " %%a in ('date /t') do (set currentdate=%%c-%%b-%%a)
 For /f "tokens=1-2 delims=/:" %%a in ("%TIME%") do (set currenttime=%%a:%%b)
