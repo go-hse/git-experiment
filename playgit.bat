@@ -71,8 +71,7 @@ git diff
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 echo - tracks/stages the files with git add >>%README%
 git add %~f0
-git add %VERSIONBAT%
-git add %DUMMY%
+git add *.bat
 git status
 
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
