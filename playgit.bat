@@ -41,8 +41,10 @@ if exist %VERSIONBAT% (
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 echo - saves the batch file with the current build number>>%README%
 (
+echo echo :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 echo echo Build %BUILDNR% at %currentdate% %currenttime%
 echo set BUILDNR=%BUILDNR%
+echo echo :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 )>%VERSIONBAT%
 
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -74,7 +76,7 @@ git status
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 echo - shows the last changes (git log) >>%README%
 ::::: show the last changes
-git log -p -2
+:: git log -p -2
 
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 echo - commits the stage to the repo >>%README%
