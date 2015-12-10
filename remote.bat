@@ -1,6 +1,10 @@
 @echo off
 
 :: this batch is called from playgit.bat
+:: it needs env vars:
+::		%REMOTE% 
+::		%VERSIONBAT%
+::		%currentdate%
 
 set HERE=%CD%
 echo %REMOTE% %HERE% %VERSIONBAT%
@@ -18,7 +22,6 @@ git checkout master
 if exist %VERSIONBAT% (
 	call %VERSIONBAT%
 )
-pause
 
 cd ..
 rmdir /S /Q %GITDIR%
