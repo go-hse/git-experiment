@@ -1,10 +1,10 @@
 @echo off
 clear
 
- git config --global user.email "andreas.roessler@hs-esslingen.de"
+ :: git config --global user.email "andreas.roessler@hs-esslingen.de"
 
-For /f "tokens=1-3 delims=. " %%a in ('date /t') do (set mydate=%%c-%%b-%%a)
-For /f "tokens=1-2 delims=/:" %%a in ("%TIME%") do (set mytime=%%a:%%b)
+For /f "tokens=1-3 delims=. " %%a in ('date /t') do (set currentdate=%%c-%%b-%%a)
+For /f "tokens=1-2 delims=/:" %%a in ("%TIME%") do (set currenttime=%%a:%%b)
 
 set BUILDNR=0
 set FILE=CurrentVersion
@@ -18,7 +18,7 @@ if exist %VERSIONBAT% (
 
 :: save the file
 (
-echo echo Build %mydate% %mytime%
+echo echo Build %currentdate% %currenttime%
 echo set BUILDNR=%BUILDNR%
 )>%VERSIONBAT%
 
