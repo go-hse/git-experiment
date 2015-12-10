@@ -15,3 +15,9 @@ git log --oneline --decorate
 
 :: switch to new branch
 git checkout %BRANCH%
+
+git status
+
+git checkout master
+
+git branch -d %BRANCH%
