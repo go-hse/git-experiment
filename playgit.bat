@@ -66,13 +66,11 @@ git add %~f0
 git add %VERSIONBAT%
 git add %DUMMY%
 git status
-pause
 
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 echo - unstages the dummy file with git reset >>%README%
 git reset HEAD %DUMMY%
 git status
-pause
 
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 echo - commits the stage to the repo >>%README%
@@ -81,7 +79,7 @@ git commit -m "Build %BUILDNR%"
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 echo - shows the last changes (git log) >>%README%
 ::::: show the last changes
-git log -p -2
+:: git log -p -2
 git log --pretty=format:"%h - %an, %ar : %s"
 
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
