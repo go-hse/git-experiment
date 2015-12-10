@@ -93,9 +93,6 @@ echo - and creates this README file >>%README%
 git add %README%
 git commit -m "Build %BUILDNR%"
 
-
-
-
 :: modify the file
 (
 echo echo Some extra line.
@@ -114,6 +111,9 @@ if %MINOR% == 0 (
 	git tag -a v%BUILDNR% -m "Tag v%BUILDNR%"
 	:: push to github
 	git push origin master
+
+	:: push the tag
+	git push origin v%BUILDNR%
 )
 
 
