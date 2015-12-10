@@ -1,5 +1,5 @@
 @echo off
-clear
+cls
 
 set GIT_SSH=
 set README=README.md
