@@ -31,7 +31,7 @@ echo set BUILDNR=%BUILDNR%
 )>%VERSIONBAT%
 
 ::::: check the status
-git status
+git status -s
 
 ::::: diff working <--> staged
 git diff
@@ -42,6 +42,10 @@ git add %VERSIONBAT%
 
 ::::: commit the files
 git commit -m "Build %BUILDNR%"
+
+::::: show the last changes
+git log -p -2
+
 
 ::::: push to github
 git push origin master
