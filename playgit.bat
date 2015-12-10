@@ -72,21 +72,20 @@ echo - unstages the dummy file with git reset >>%README%
 git reset HEAD %DUMMY%
 git status
 
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-echo - commits the stage to the repo >>%README%
-git commit -m "Build %BUILDNR%"
 
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 echo - shows the last changes (git log) >>%README%
 ::::: show the last changes
-:: git log -p -2
-git log --pretty=format:"%h - %an, %ar : %s"
+git log -p -2
 
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::END::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo - commits the stage to the repo >>%README%
 echo - pushes everything to github >>%README%
+echo - and creates this README file >>%README%
+
+git add %README%
+git commit -m "Build %BUILDNR%"
 git push origin master
 
 
-::::::::END::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-echo - and creades this README file >>%README%
 
