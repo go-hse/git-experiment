@@ -94,10 +94,6 @@ git add %README%
 git commit -m "Build %BUILDNR%"
 
 
-echo %BUILDNR% minor %MINOR%
-if %MINOR% == 0 (
-	git tag -a v%BUILDNR% -m "Tag v%BUILDNR%"
-)
 
 
 :: modify the file
@@ -113,8 +109,14 @@ git checkout -- %VERSIONBAT%
 :: call the file; should not display the extra line
 call %VERSIONBAT%
 
-:: push to github
-git push origin master
+echo %BUILDNR% minor %MINOR%
+if %MINOR% == 0 (
+	git tag -a v%BUILDNR% -m "Tag v%BUILDNR%"
+	:: push to github
+	git push origin master
+)
+
+
 
 
 
