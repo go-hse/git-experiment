@@ -2,6 +2,7 @@
 clear
 
  :: git config --global user.email "andreas.roessler@hs-esslingen.de"
+git config --global user.name "go-hse"
 
 For /f "tokens=1-3 delims=. " %%a in ('date /t') do (set currentdate=%%c-%%b-%%a)
 For /f "tokens=1-2 delims=/:" %%a in ("%TIME%") do (set currenttime=%%a:%%b)
