@@ -1,8 +1,8 @@
 @echo off
 clear
 
- :: git config --global user.email "andreas.roessler@hs-esslingen.de"
-git config --global user.name "go-hse"
+ :: git config --global user.email "johndoe@example.com"
+:: git config --global user.name "john doe"
 
 For /f "tokens=1-3 delims=. " %%a in ('date /t') do (set currentdate=%%c-%%b-%%a)
 For /f "tokens=1-2 delims=/:" %%a in ("%TIME%") do (set currenttime=%%a:%%b)
