@@ -1,2 +1,2 @@
-echo Build 38 3 at 12.12.2015 18:15
-BUILDNR=38
+echo Build 39 4 at 12.12.2015 18:15
+BUILDNR=39

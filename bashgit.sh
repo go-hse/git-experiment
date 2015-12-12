@@ -54,7 +54,7 @@ EOF
 
 git add $VERSIONSCRIPT
 git add $0
-git commit -m "Linux Build %BUILDNR%"
+git commit -m "Linux Build $BUILDNR"
 git push origin master
 
 
