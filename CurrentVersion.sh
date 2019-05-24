@@ -1,2 +1,2 @@
-echo Build 41 1 at 05.24.2019 16:13
-BUILDNR=41
+echo Build 42 8 at 05.24.2019 16:19
+BUILDNR=42

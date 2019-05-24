@@ -43,7 +43,7 @@ if [ -f $VERSIONSCRIPT ]; then
 fi
 
 ((BUILDNR++))
-MINOR=$((BUILDNR%5))
+MINOR=$((BUILDNR/5))
 
 # set /a MINOR=%BUILDNR% %% 5
 
@@ -52,10 +52,17 @@ echo Build $BUILDNR $MINOR at $now
 BUILDNR=$BUILDNR
 EOF
 
+cat <<EOF > $DUMMY
+echo echo This is an unuseful dummy at $now
+EOF
+git status -s
+
+
 git add $VERSIONSCRIPT
 git add $0
 git commit -m "Linux Build $BUILDNR"
-git push origin master
+
+# git push origin master
 
 
 
