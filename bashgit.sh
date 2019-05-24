@@ -6,7 +6,7 @@ echo $0 $now
 
 
 BUILDNR=0
-MINOR=0
+MINOR=1
 FILE=CurrentVersion
 VERSIONSCRIPT=$FILE.sh
 DUMMY=$FILE.dummy
