@@ -53,7 +53,7 @@ BUILDNR=$BUILDNR
 EOF
 
 cat <<EOF > $DUMMY
-echo echo This is an unuseful dummy at $now
+echo This is an unuseful dummy at $now
 EOF
 git status -s
 
