@@ -31,3 +31,15 @@ ssh -T -i ~/.ssh/id_hse git@github.com
 git remote -v
 git remote set-url origin git@github.com:go-hse/mci2w22
 ```
+
+## Config
+
+```
+git config --global alias.co checkout
+git config --global alias.br branch
+git config --global alias.ci commit
+git config --global alias.st status
+
+git config --global user.name "Andreas Roessler"
+git config --global user.email "andreas.roessler@hs-esslingen.de"
+```
