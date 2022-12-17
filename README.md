@@ -17,7 +17,17 @@ The Windows batch file playgit.bat
 
 ## Commands
 
+```
+# Start SSH agent
 eval "$(ssh-agent -s)"
+
+# Add identity
 ssh-add ~/.ssh/id_hse
+
+# Test identity
 ssh -T -i ~/.ssh/id_hse git@github.com
 
+# Check remote host, maybe wrong if cloned via HTTPS
+git remote -v
+git remote set-url origin git@github.com:go-hse/mci2w22
+```
