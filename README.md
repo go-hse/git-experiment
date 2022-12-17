@@ -13,3 +13,11 @@ The Windows batch file playgit.bat
 - commits the stage to the repo 
 - pushes everything to github 
 - and creates this README file 
+
+
+## Commands
+
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_hse
+ssh -T -i ~/.ssh/id_hse git@github.com
+
